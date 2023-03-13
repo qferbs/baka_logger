@@ -1,4 +1,4 @@
-from baka import logger_setup, print
+from baka_logger import logger_setup, print
 import logging
 
 logger_setup(

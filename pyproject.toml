@@ -4,17 +4,21 @@ build-backend = "hatchling.build"
 
 [project]
 name = "baka_logger"
-version = "0.0.1"
 authors = [
-    {name="Quinn Ferbers", email="gqferbs@gmai.com"},
+    {name="Quinn Ferbers", email="gqferbs@gmail.com"},
 ]
 description = "A library for turning boring log messages into fun interactions with anime characters."
+dependencies = [
+    "openai",
+    "python-dotenv",
+]
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+version = "0.0.1"
 
 [project.urls]
 "Homepage" = "github"
