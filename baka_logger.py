@@ -100,7 +100,7 @@ def logger_setup(
     fmt="%(message)s",
     level="INFO",
     file=None,
-    logger=True,
+    logger=False,
     excepthook=True,
 ):
     """Initial setup for `baka_logger`. This should be called before `baka.print()` is used.
@@ -108,13 +108,13 @@ def logger_setup(
         character[str]:     The character used for the logger, `baka.print()`, and excepthook.
         fmt[str]:           Format string given to to the logger's formatter. See 'logging.Formatter' for details.
                             Defaults to '%(message)s'.
-        level[str]:         The minimum log level to log. See 'logging.Logger.setLevel()' for details. Defaults to 'INFO'.
-        file[str]:          If provided, logs will be written to 'file' as well as stdout. Defaults to None.
+        level[str]:         The minimum log level to log. See 'logging.Logger.setLevel()' for details. Defaults to '"INFO"'.
+        file[str]:          If provided, logs will be written to 'file' as well as `stdout`. Defaults to `None`.
         logger[bool]:       If `True`, the base logger will be set up to output to `stdout` and `file` (if provided)
                             in the style of `character`. Set to `False` if you want to customize the logging and use
-                            `BakaFormatter`s on select handlers. Defaults to True.
+                            `BakaFormatter`s on select handlers. Defaults to `False`.
         excepthook[bool]:   If 'True' a custom excepthook is created to format the error trace in the style of `character`.
-                            Defaults to True.
+                            Defaults to `True`.
     """
     global _logger_initialized, _print_character
 
@@ -122,7 +122,8 @@ def logger_setup(
         logging.warning("baka logger was already initialized!")
         return
 
-    dotenv.load_dotenv()
+    # dotenv.load_dotenv(os.path.join(os.getcwd(), ".env"))
+    dotenv.load_dotenv(".env")
     # load openai key if it exists
     if os.getenv("OPENAI_API_KEY"):
         openai.api_key = os.getenv("OPENAI_API_KEY")
