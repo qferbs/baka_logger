@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "baka_logger"
+version = "0.0.1"
+authors = [
+    {name="Quinn Ferbers", email="gqferbs@gmai.com"},
+]
+description = "A library for turning boring log messages into fun interactions with anime characters."
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "github"
+"Bug Tracker" = "github"
